@@ -12,7 +12,7 @@ const { selectedItem } = Astro.props;
   class="sidebar w-nav"
 >
   <div class="nav-content">
-    <a href="/" class="w-nav-brand" aria-label="home">
+    <a href="/Astro-portfolio-for-tutorial/" class="w-nav-brand" aria-label="home">
       <div class="niv-data">
         <img
           src="/assets/web-app-manifest-192x192.png"
@@ -29,7 +29,7 @@ const { selectedItem } = Astro.props;
 
     <nav role="navigation" class="w-nav-menu">
       <a
-        href="/"
+        href="/Astro-portfolio-for-tutorial/"
         class={`nav-link-container w-inline-block ${
           selectedItem === 'home' ? 'w--current' : ''
         }`}
@@ -43,7 +43,7 @@ const { selectedItem } = Astro.props;
         <div>Home</div>
       </a>
       <a
-        href="/about"
+        href="/Astro-portfolio-for-tutorial/about"
         class={`nav-link-container w-inline-block ${
           selectedItem === 'about' ? 'w--current' : ''
         }`}
@@ -60,7 +60,7 @@ const { selectedItem } = Astro.props;
         <div>About</div>
       </a>
       <a
-        href="/personal-projects"
+        href="/Astro-portfolio-for-tutorial/personal-projects"
         class={`nav-link-container w-inline-block ${
           selectedItem === 'personal-projects' ? 'w--current' : ''
         }`}
