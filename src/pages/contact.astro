@@ -1,0 +1,103 @@
+---
+import Header from "../components/Header.astro";
+import Sidebar from "../components/Sidebar.astro";
+import "../styles/styles.css";
+
+// NOT A MISTAKE:
+const FORM_KEY = "7b24fcb7-5fea-4df7-b80f-dcc08d03e13a"
+
+---
+<!DOCTYPE html>
+<html>
+<Header title="Contact | Schousboe" />
+<body>
+    <div class="content">
+        <Sidebar/>
+        <nav class="main">
+            <div class="container">
+                <div class="back-nav-container">
+                    <a href="/Astro-portfolio-for-tutorial/" class="back-nav-button w-inline-block"
+                    ><img src="/Astro-portfolio-for-tutorial/assets/back.svg" loading="lazy" alt="" class="back-nav-img" />
+                    <div>Back</div></a
+                    >
+                </div>
+                <div class="fold-content-container">
+                    <div class="fold-content">
+                        <h1>Contact Me</h1>
+                        <p class="lead">Submit the form below to get in contact with me:</p>
+                    </div>
+                        <form method="POST" id="form" class="form">
+
+                            <input type="hidden" name="access_key" value={FORM_KEY}>
+
+                            <div class="form-field">
+                                <label class="mini-label-white gray-color">Name</label>
+                                <input type="text" name="name" required>
+                            </div>
+
+                            <div class="form-field">
+                                <label class="mini-label-white gray-color">Email</label>
+                                <input type="email" name="email" required>
+                            </div>
+                                
+                            <div class="form-field">
+                                <label class="mini-label-white gray-color">Message</label>
+                                <textarea name="message" required></textarea>
+                            </div>
+                                
+                            <button type="submit" class="button">Send Form</button>
+                            <div id="result" class="form-result"></div>
+
+                        </form>
+
+                        <script is:inline>
+                        const form = document.getElementById('form');
+                        const result = document.getElementById('result');
+
+                        form.addEventListener('submit', function(e) {
+                            const formData = new FormData(form);
+                            e.preventDefault();
+
+                            const object = Object.fromEntries(formData);
+                            const json = JSON.stringify(object);
+
+                            result.innerHTML = "Please wait..."
+
+                            fetch('https://api.web3forms.com/submit', {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/json',
+                                        'Accept': 'application/json'
+                                    },
+                                    body: json
+                                })
+                                .then(async (response) => {
+                                    let json = await response.json();
+                                    if (response.status == 200) {
+                                        result.innerHTML = json.message;
+                                    } else {
+                                        console.log(response);
+                                        result.innerHTML = json.message;
+                                    }
+                                })
+                                .catch(error => {
+                                    console.log(error);
+                                    result.innerHTML = "Something went wrong!";
+                                })
+                                .then(function() {
+                                    form.reset();
+                                    setTimeout(() => {
+                                        result.style.display = "none";
+                                    }, 3000);
+                                });
+                        });
+                        </script>
+
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+</body>
+</html>

@@ -557,6 +557,70 @@ p {
   height: 82px;
 }
 
+.form {
+  width: 100%;
+  max-width: 580px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form input,
+.form textarea {
+  color: #fff;
+  background-color: #1c1c1c;
+  border: 1px solid #353535;
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-family: IBM Plex Sans, sans-serif;
+  font-size: 14px;
+  line-height: 22px;
+  transition: border-color 0.12s, background-color 0.12s;
+}
+
+.form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form input::placeholder,
+.form textarea::placeholder {
+  color: #6f6f6f;
+}
+
+.form input:focus,
+.form textarea:focus {
+  outline: none;
+  background-color: #202020;
+  border-color: #4a4a4a;
+}
+
+.form input:invalid,
+.form textarea:invalid {
+  box-shadow: none;
+}
+
+.form .button {
+  align-self: flex-start;
+  margin-top: 8px;
+  cursor: pointer;
+}
+
+.form-result {
+  min-height: 20px;
+  font-size: 14px;
+  line-height: 22px;
+  color: #a8a8a8;
+  font-family: IBM Plex Sans, sans-serif;
+}
+
+
 @media screen and (max-width: 991px) {
   .content {
     flex-direction: column;
