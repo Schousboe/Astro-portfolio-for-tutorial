@@ -3,7 +3,6 @@ import Header from "../components/Header.astro";
 import Sidebar from "../components/Sidebar.astro";
 import "../styles/styles.css";
 
-// NOT A MISTAKE:
 const FORM_KEY = "7b24fcb7-5fea-4df7-b80f-dcc08d03e13a"
 
 ---
@@ -60,8 +59,6 @@ const FORM_KEY = "7b24fcb7-5fea-4df7-b80f-dcc08d03e13a"
 
                             const object = Object.fromEntries(formData);
                             const json = JSON.stringify(object);
-
-                            result.innerHTML = "Please wait..."
 
                             fetch('https://api.web3forms.com/submit', {
                                     method: 'POST',
