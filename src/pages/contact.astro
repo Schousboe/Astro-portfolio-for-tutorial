@@ -57,11 +57,11 @@ const FORM_KEY = "7b24fcb7-5fea-4df7-b80f-dcc08d03e13a"
                             const formData = new FormData(form);
                             e.preventDefault();
 
-                            const name = formData.get(name)
-
-                            const subject = `${name} sent a message`;
-
-                            formData.append('subject', subject)
+                            const name = formData.get('name');
+    
+                            const subject = `${name} sent a message from website`;
+                            
+                            formData.set('subject', subject);
 
                             const object = Object.fromEntries(formData);
                             const json = JSON.stringify(object);
