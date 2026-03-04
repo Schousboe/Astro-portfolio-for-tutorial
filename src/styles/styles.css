@@ -587,6 +587,7 @@ p {
 .form textarea {
   resize: vertical;
   min-height: 120px;
+  margin-bottom: 20px;
 }
 
 .form input::placeholder,

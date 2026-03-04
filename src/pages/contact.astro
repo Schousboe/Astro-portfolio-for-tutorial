@@ -43,11 +43,16 @@ const FORM_KEY = "7b24fcb7-5fea-4df7-b80f-dcc08d03e13a"
                                 <label class="mini-label-white gray-color">Message</label>
                                 <textarea name="message" required></textarea>
                             </div>
+
+                            <div class="h-captcha" data-captcha="true" data-theme="dark"></div>
                                 
                             <button type="submit" class="button">Send Form</button>
                             <div id="result" class="form-result"></div>
 
                         </form>
+
+                        <script src="https://web3forms.com/client/script.js" async defer></script>
+
 
                         <script is:inline>
                         const form = document.getElementById('form');
